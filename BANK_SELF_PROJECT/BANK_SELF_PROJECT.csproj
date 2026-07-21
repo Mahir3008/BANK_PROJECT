@@ -10,4 +10,18 @@
     <AssemblyOriginatorKeyFile>D:\CPP_CONSOLE_PROJECT\BANK_SELF_PROJECT\BANK_KEY.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="GraphQL" Version="8.8.4" />
+    <PackageReference Include="GraphQL-Parser" Version="9.5.1" />
+    <PackageReference Include="GraphQL.Analyzers" Version="8.8.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.10" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="10.0.10" />
+    <PackageReference Include="Microsoft.Graph" Version="6.2.0" />
+    <PackageReference Include="Microsoft.Graph.Core" Version="4.0.1" />
+    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.12-pre20260709125052" />
+  </ItemGroup>
+
 </Project>

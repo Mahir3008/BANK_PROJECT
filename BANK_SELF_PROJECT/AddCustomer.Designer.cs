@@ -47,6 +47,7 @@
             txt_address = new TextBox();
             txt_balance = new TextBox();
             txt_date = new DateTimePicker();
+            btn_back = new Button();
             SuspendLayout();
             // 
             // Title
@@ -250,12 +251,24 @@
             txt_date.Size = new Size(807, 30);
             txt_date.TabIndex = 18;
             // 
+            // btn_back
+            // 
+            btn_back.Font = new Font("Segoe UI", 10F);
+            btn_back.Location = new Point(786, 12);
+            btn_back.Name = "btn_back";
+            btn_back.Size = new Size(151, 38);
+            btn_back.TabIndex = 19;
+            btn_back.Text = "Back To Main Screen";
+            btn_back.UseVisualStyleBackColor = true;
+            btn_back.Click += btn_back_Click;
+            // 
             // AddCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(949, 621);
+            Controls.Add(btn_back);
             Controls.Add(txt_date);
             Controls.Add(txt_balance);
             Controls.Add(txt_address);
@@ -302,5 +315,6 @@
         private TextBox txt_address;
         private TextBox txt_balance;
         private DateTimePicker txt_date;
+        private Button btn_back;
     }
 }
