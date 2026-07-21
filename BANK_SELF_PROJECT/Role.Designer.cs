@@ -28,18 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Title = new Label();
+            txt_role = new ComboBox();
             SuspendLayout();
+            // 
+            // Title
+            // 
+            Title.AutoSize = true;
+            Title.Font = new Font("Segoe UI", 15F);
+            Title.Location = new Point(318, 27);
+            Title.Name = "Title";
+            Title.Size = new Size(120, 35);
+            Title.TabIndex = 0;
+            Title.Text = "Your Role";
+            // 
+            // txt_role
+            // 
+            txt_role.Font = new Font("Segoe UI", 10F);
+            txt_role.FormattingEnabled = true;
+            txt_role.Items.AddRange(new object[] { "Admin", "Customer" });
+            txt_role.Location = new Point(291, 118);
+            txt_role.Name = "txt_role";
+            txt_role.Size = new Size(200, 31);
+            txt_role.TabIndex = 1;
+            txt_role.SelectedIndexChanged += txt_role_SelectedIndexChanged;
             // 
             // Role
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(txt_role);
+            Controls.Add(Title);
             Name = "Role";
             Text = "Role";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label Title;
+        private ComboBox txt_role;
     }
 }

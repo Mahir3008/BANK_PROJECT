@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>D:\CPP_CONSOLE_PROJECT\BANK_SELF_PROJECT\BANK_KEY.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
 </Project>
