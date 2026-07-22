@@ -46,7 +46,7 @@ namespace BANK_SELF_PROJECT
                 {
                     string createTable = @"CREATE TABLE IF NOT EXISTS Bank_Self(
                                  ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                                 USERID TEXT NOT NULL,
+                                 USERID TEXT UNIQUE NOT NULL,
                                  FULLNAME TEXT NOT NULL,
                                  EMAIL TEXT NOT NULL,
                                  PHONE TEXT NOT NULL,

@@ -132,10 +132,10 @@
             // 
             // btn_add
             // 
-            btn_add.BackColor = Color.White;
+            btn_add.BackColor = Color.DarkGreen;
             btn_add.FlatAppearance.BorderColor = Color.Green;
             btn_add.FlatAppearance.BorderSize = 2;
-            btn_add.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btn_add.FlatAppearance.MouseOverBackColor = Color.White;
             btn_add.FlatStyle = FlatStyle.Flat;
             btn_add.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btn_add.ForeColor = Color.DarkGreen;
@@ -144,15 +144,15 @@
             btn_add.Size = new Size(122, 42);
             btn_add.TabIndex = 8;
             btn_add.Text = "Add";
-            btn_add.UseVisualStyleBackColor = true;
+            btn_add.UseVisualStyleBackColor = false;
             btn_add.Click += btn_add_Click;
             // 
             // btn_update
             // 
-            btn_update.BackColor = Color.White;
+            btn_update.BackColor = Color.Orange;
             btn_update.FlatAppearance.BorderColor = Color.Orange;
             btn_update.FlatAppearance.BorderSize = 2;
-            btn_update.FlatAppearance.MouseOverBackColor = Color.Orange;
+            btn_update.FlatAppearance.MouseOverBackColor = Color.White;
             btn_update.FlatStyle = FlatStyle.Flat;
             btn_update.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btn_update.ForeColor = Color.Orange;
@@ -161,14 +161,14 @@
             btn_update.Size = new Size(122, 42);
             btn_update.TabIndex = 9;
             btn_update.Text = "Update";
-            btn_update.UseVisualStyleBackColor = true;
+            btn_update.UseVisualStyleBackColor = false;
             // 
             // btn_delete
             // 
-            btn_delete.BackColor = Color.White;
+            btn_delete.BackColor = Color.Red;
             btn_delete.FlatAppearance.BorderColor = Color.Red;
             btn_delete.FlatAppearance.BorderSize = 2;
-            btn_delete.FlatAppearance.MouseOverBackColor = Color.Red;
+            btn_delete.FlatAppearance.MouseOverBackColor = Color.White;
             btn_delete.FlatStyle = FlatStyle.Flat;
             btn_delete.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btn_delete.ForeColor = Color.Red;
@@ -177,14 +177,14 @@
             btn_delete.Size = new Size(122, 42);
             btn_delete.TabIndex = 10;
             btn_delete.Text = "Delete";
-            btn_delete.UseVisualStyleBackColor = true;
+            btn_delete.UseVisualStyleBackColor = false;
             // 
             // btn_clear
             // 
-            btn_clear.BackColor = Color.White;
+            btn_clear.BackColor = Color.Gray;
             btn_clear.FlatAppearance.BorderColor = Color.Gray;
             btn_clear.FlatAppearance.BorderSize = 2;
-            btn_clear.FlatAppearance.MouseOverBackColor = Color.Gray;
+            btn_clear.FlatAppearance.MouseOverBackColor = Color.White;
             btn_clear.FlatStyle = FlatStyle.Flat;
             btn_clear.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btn_clear.ForeColor = Color.Gray;
@@ -193,7 +193,7 @@
             btn_clear.Size = new Size(122, 42);
             btn_clear.TabIndex = 11;
             btn_clear.Text = "Clear";
-            btn_clear.UseVisualStyleBackColor = true;
+            btn_clear.UseVisualStyleBackColor = false;
             // 
             // txt_userid
             // 

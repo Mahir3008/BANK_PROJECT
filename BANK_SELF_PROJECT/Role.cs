@@ -1,3 +1,7 @@
+using Microsoft.VisualBasic;
+using System;
+using System.Windows.Forms;
+
 namespace BANK_SELF_PROJECT
 {
     public partial class Role : Form
@@ -18,14 +22,23 @@ namespace BANK_SELF_PROJECT
             {
                 case "Admin":
                     {
-                        Admin admin = new Admin();
-                        admin.Show();
-                        this.Hide();
+                         string pass = Interaction.InputBox("Please Enter the admin password to continue");
+                        if (pass == "Admin123")
+                        {
+                            Admin admin = new Admin();
+                            admin.Show();
+                            this.Hide();
+                        }
+                        if (!(pass == "Admin123"))
+                        {
+                            MessageBox.Show("Wrong Password","Please type correct password",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                            return;
+                        }
                         break;
                     }
                 case "Customer":
                     {
-                        Customer customer = new Customer();
+                        Customer customer = new Customer(string.Empty);
                         customer.Show();
                         this.Hide();
                         break;
