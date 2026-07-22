@@ -162,6 +162,7 @@
             btn_update.TabIndex = 9;
             btn_update.Text = "Update";
             btn_update.UseVisualStyleBackColor = false;
+            btn_update.Click += btn_update_Click;
             // 
             // btn_delete
             // 
@@ -178,6 +179,7 @@
             btn_delete.TabIndex = 10;
             btn_delete.Text = "Delete";
             btn_delete.UseVisualStyleBackColor = false;
+            btn_delete.Click += btn_delete_Click;
             // 
             // btn_clear
             // 

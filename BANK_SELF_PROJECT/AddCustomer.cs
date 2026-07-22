@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Data.Sqlite;
+using static System.Windows.Forms.LinkLabel;
 
 
 namespace BANK_SELF_PROJECT
@@ -93,10 +95,106 @@ namespace BANK_SELF_PROJECT
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            Role role = new Role();
-            role.Show();
+            Admin admin = new Admin();
+            admin.Show();
             this.Hide();
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            string id = txt_userid.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                MessageBox.Show("Please enter the User ID to update.", "User ID Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                using (SqliteConnection connn = new SqliteConnection(ds))
+                {
+                    connn.Open();
+                    string update = $"UPDATE Bank_Self SET FULLNAME = @Fullname , EMAIL = @Email , PHONE = @Phone , ADDRESS = @Address , DATE = @Date, BALANCE = @Balance WHERE USERID = @Userid";
+
+                    using (SqliteCommand cmd = new SqliteCommand(update, connn))
+                    {
+                        cmd.Parameters.AddWithValue("@Userid", id);
+
+                        cmd.Parameters.AddWithValue("@Fullname", txt_fullname.Text);
+                        cmd.Parameters.AddWithValue("@Email", txt_email.Text);
+                        cmd.Parameters.AddWithValue("@Phone", txt_phone.Text);
+                        cmd.Parameters.AddWithValue("@Address", txt_address.Text);
+                        cmd.Parameters.AddWithValue("@Date", txt_date.Text);
+                        //cmd.Parameters.AddWithValue("@Balance", txt_balance.Text);
+
+                        double balanceValue = 0;
+                        double.TryParse(txt_balance.Text.Trim(), out balanceValue);
+                        cmd.Parameters.AddWithValue("@Balance", balanceValue);
+
+                        int success = cmd.ExecuteNonQuery();
+                        if (success > 0)
+                        {
+                            MessageBox.Show("Record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}");
+            }
+
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            string id = txt_userid.Text.Trim();
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                MessageBox.Show("Please enter the User ID to delete.", "User ID Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult confirmResult = MessageBox.Show("Are you sure you want to permanently delete this customer?",
+                                                        "Confirm Delete",
+                                                        MessageBoxButtons.YesNo,
+                                                        MessageBoxIcon.Question);
+            if (confirmResult != DialogResult.Yes)
+            {
+                return;
+            }
+            try
+            {
+                using (SqliteConnection connn = new SqliteConnection(ds))
+                {
+                    connn.Open();
+                    string deleteQuery = "DELETE FROM Bank_Self WHERE USERID = @Userid";
+
+                    using (SqliteCommand cmd = new SqliteCommand(deleteQuery, connn))
+                    {
+                        cmd.Parameters.AddWithValue("@Userid", id);
+
+                        int success = cmd.ExecuteNonQuery();
+                        if (success > 0)
+                        {
+                            MessageBox.Show("Customer deleted successfully!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("No customer found with that User ID.", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}");
+            }
+        
         }
     }
 }
+
+    
 
